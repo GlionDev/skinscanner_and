@@ -11,9 +11,7 @@
 - [프로젝트 구조](#프로젝트-구조)
 - [모델 추론](#모델-추론)
 - [테스트](#테스트)
-- [CI](#ci)
 - [트러블슈팅](#트러블슈팅)
-- [기여 가이드](#기여-가이드)
 
 ## Quick Start
 
@@ -139,14 +137,10 @@ debug 빌드에서는 분석할 때마다 전처리, 추론, 전체 소요 시�
 | 테스트 | 위치 | 내용 |
 | --- | --- | --- |
 | 데이터셋 일괄 추론 | `app/src/androidTest/.../InstrumentedDataSetTestUseTensorflowLight.kt` | `DATA_SET_URL`에서 이미지 10,015장(`1.jpg` ~ `10015.jpg`)을 내려받아 4개 스레드로 추론하고 결과를 로그로 출력 |
-| 단위 테스트 | `app/src/test/.../ExampleUnitTest.kt` | 기본 예제 |
 
 ```bash
 # 계측 테스트 (기기 연결 필요, 네트워크 사용)
 ./gradlew :app:connectedDebugAndroidTest
-
-# 단위 테스트
-./gradlew :app:testDebugUnitTest
 ```
 
 ## 트러블슈팅
