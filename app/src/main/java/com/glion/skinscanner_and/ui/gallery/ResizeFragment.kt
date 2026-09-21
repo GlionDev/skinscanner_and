@@ -14,8 +14,8 @@ import com.glion.skinscanner_and.databinding.FragmentResizeBinding
 import com.glion.skinscanner_and.ui.MainActivity
 import com.glion.skinscanner_and.ui.base.BaseFragment
 import com.glion.skinscanner_and.util.Utility
-import com.glion.skinscanner_and.util.admob.AdmobInterface
-import com.glion.skinscanner_and.util.admob.AdmobUtil
+//import com.glion.skinscanner_and.util.admob.AdmobInterface
+//import com.glion.skinscanner_and.util.admob.AdmobUtil
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -30,30 +30,30 @@ class ResizeFragment : BaseFragment<FragmentResizeBinding, MainActivity>(R.layou
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AdmobUtil.setListener(object : AdmobInterface {
-            override fun adDismiss() {
-                if(BuildConfig.DEBUG) {
-                    if(earnedReward == "coins") {
-                        hideProgress()
-                        findNavController().navigate(movedAction!!)
-                    }
-                } else {
-                    if(mContext.getString(R.string.reward_type) == earnedReward) { // note : 얻은 보상 타입이 미리 지정한 보상 타입과 같은 경우, 화면 이동
-                        hideProgress()
-                        findNavController().navigate(movedAction!!)
-                    }
-                }
-            }
-
-            override fun getReward(rewardType: String) {
-                earnedReward = rewardType
-            }
-
-            override fun adError() {
-                hideProgress()
-                findNavController().navigate(movedAction!!)
-            }
-        })
+//        AdmobUtil.setListener(object : AdmobInterface {
+//            override fun adDismiss() {
+//                if(BuildConfig.DEBUG) {
+//                    if(earnedReward == "coins") {
+//                        hideProgress()
+//                        findNavController().navigate(movedAction!!)
+//                    }
+//                } else {
+//                    if(mContext.getString(R.string.reward_type) == earnedReward) { // note : 얻은 보상 타입이 미리 지정한 보상 타입과 같은 경우, 화면 이동
+//                        hideProgress()
+//                        findNavController().navigate(movedAction!!)
+//                    }
+//                }
+//            }
+//
+//            override fun getReward(rewardType: String) {
+//                earnedReward = rewardType
+//            }
+//
+//            override fun adError() {
+//                hideProgress()
+//                findNavController().navigate(movedAction!!)
+//            }
+//        })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -90,13 +90,15 @@ class ResizeFragment : BaseFragment<FragmentResizeBinding, MainActivity>(R.layou
                         }
                         is ResizeUiState.OnProcessing -> {
                             mBinding.vAdDim.visibility = View.VISIBLE
-                            AdmobUtil.showAd()
+//                            AdmobUtil.showAd()
                         }
                         is ResizeUiState.OnError -> {
                             showToast(uiState.msg)
                         }
                         is ResizeUiState.OnSuccess -> {
+                            hideProgress()
                             movedAction = ResizeFragmentDirections.actionResizeFragmentToResultFragment(uiState.analyzeResult.cancerType, uiState.analyzeResult.percent)
+                            findNavController().navigate(movedAction!!)
                         }
                     }
                 }

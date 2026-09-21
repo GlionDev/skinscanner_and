@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AI 피부암 검사</string>
+    <string name="app_name">AI 피부 이미지 분석</string>
     <string name="maybe_rooted_app">비정상적인 OS 로 판단되어 앱을 실행할 수 없습니다.</string>
     <string name="ready_for_app_use">앱을 사용하기 위해 준비중입니다...</string>
 

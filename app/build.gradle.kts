@@ -39,25 +39,25 @@ android {
         buildConfigField("String", "INNER_SERVER", properties.getProperty("INNER_SERVER"))
     }
 
-    buildTypes {
-        debug {
-            // 테스트용 보상형 광고 App Id manifestPlaceholders 로 저장
-            manifestPlaceholders["AD_APP_ID"] = properties.getProperty("TEST_AD_APP_ID") as String
-            // 보상형 광고 ID buldConfigField 에 저장
-            buildConfigField("String", "AD_ID", properties.getProperty("TEST_AD_ID"))
-        }
-        release {
-            // 보상형 광고 App Id manifestPlaceholders 로 저장
-            manifestPlaceholders["AD_APP_ID"] = properties.getProperty("REWARD_AD_APP_ID") as String
-            // 보상형 광고 ID buldConfigField 에 저장
-            buildConfigField("String", "AD_ID", properties.getProperty("REWARD_AD_ID"))
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
+//    buildTypes {
+//        debug {
+//            // 테스트용 보상형 광고 App Id manifestPlaceholders 로 저장
+//            manifestPlaceholders["AD_APP_ID"] = properties.getProperty("TEST_AD_APP_ID") as String
+//            // 보상형 광고 ID buldConfigField 에 저장
+//            buildConfigField("String", "AD_ID", properties.getProperty("TEST_AD_ID"))
+//        }
+//        release {
+//            // 보상형 광고 App Id manifestPlaceholders 로 저장
+//            manifestPlaceholders["AD_APP_ID"] = properties.getProperty("REWARD_AD_APP_ID") as String
+//            // 보상형 광고 ID buldConfigField 에 저장
+//            buildConfigField("String", "AD_ID", properties.getProperty("REWARD_AD_ID"))
+//            isMinifyEnabled = false
+//            proguardFiles(
+//                getDefaultProguardFile("proguard-android-optimize.txt"),
+//                "proguard-rules.pro"
+//            )
+//        }
+//    }
     buildFeatures {
         buildConfig = true
     }
@@ -121,18 +121,18 @@ dependencies {
     implementation(Library.RETROFIT)
 
     // Google play service location
-    implementation(Library.PLAY_SERVICES_LOCATION)
+    // implementation(Library.PLAY_SERVICES_LOCATION)
     // AdMob
-    implementation(Library.PLAY_SERVICES_ADS)
+    // implementation(Library.PLAY_SERVICES_ADS)
 
     // firebase bom
-    implementation(platform(Library.FIREBASE_BOM))
+    // implementation(platform(Library.FIREBASE_BOM))
     // firebase crashlytics
-    implementation(Library.FIREBASE_CRASHLYTICS)
+    // implementation(Library.FIREBASE_CRASHLYTICS)
     // firebase analytics
-    implementation(Library.FIREBASE_ANALYTICS)
+    // implementation(Library.FIREBASE_ANALYTICS)
     // firebase realtime database
-    implementation(Library.FIREBASE_DATABASE)
+    // implementation(Library.FIREBASE_DATABASE)
 
     // android fragment navigation
     implementation(Library.ANDROIDX_NAVIGATION_FRAGMENT)

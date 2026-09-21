@@ -8,14 +8,14 @@ import com.glion.skinscanner_and.data.api.mapper.toData
 import com.glion.skinscanner_and.data.api.source.KakaoApiService
 import com.glion.skinscanner_and.data.api.source.MyApiService
 import com.glion.skinscanner_and.util.CryptoUtils
-import com.glion.skinscanner_and.util.Utility
-import com.google.firebase.Firebase
-import com.google.firebase.database.database
+//import com.glion.skinscanner_and.util.Utility
+//import com.google.firebase.Firebase
+//import com.google.firebase.database.database
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.tasks.await
+//import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class NetworkDatasourceImpl @Inject constructor(
@@ -25,16 +25,16 @@ class NetworkDatasourceImpl @Inject constructor(
     /**
      * 앱 버전 체크
      */
-    override suspend fun getVersion(): Flow<Int?> = flow {
-        val snapshot = Firebase.database.reference.get().await()
-        val serverVersion = snapshot.getValue(AppVersion::class.java)
-        if(serverVersion != null) {
-            val flag = Utility.compareAppVersion(serverVersion.versionName, serverVersion.versionType)
-            emit(flag)
-        } else {
-            emit(null)
-        }
-    }
+//    override suspend fun getVersion(): Flow<Int?> = flow {
+//        val snapshot = Firebase.database.reference.get().await()
+//        val serverVersion = snapshot.getValue(AppVersion::class.java)
+//        if(serverVersion != null) {
+//            val flag = Utility.compareAppVersion(serverVersion.versionName, serverVersion.versionType)
+//            emit(flag)
+//        } else {
+//            emit(null)
+//        }
+//    }
 
     /**
      * 주변 3키로 내의 피부과 가져오기

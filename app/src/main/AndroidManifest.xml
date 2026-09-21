@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-feature android:name="android.hardware.camera.any" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" /> <!-- API Level 32(Android 12) or lower -->
     <uses-permission
@@ -36,14 +36,14 @@
             </intent-filter>
         </activity>
         <!-- 보상형 광고 관련 설정 -->
-        <property
+<!--        <property
             android:name="android.adservices.AD_SERVICES_CONFIG"
             android:resource="@xml/ga_ad_services_config"
             tools:replace="android:resource" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="${AD_APP_ID}" />
+            android:value="${AD_APP_ID}" />-->
     </application>
 
 </manifest>

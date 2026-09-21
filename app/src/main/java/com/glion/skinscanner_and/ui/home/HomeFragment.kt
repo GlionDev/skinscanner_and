@@ -29,7 +29,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, MainActivity>(R.layout.fr
         @RequiresApi(Build.VERSION_CODES.TIRAMISU)
         private const val READ_MEDIA_IMAGES = Manifest.permission.READ_MEDIA_IMAGES
 
-        @RequiresApi(34)
         private const val READ_MEDIA_VISUAL_USER_SELECTED = Manifest.permission.READ_MEDIA_VISUAL_USER_SELECTED
     }
 
@@ -63,12 +62,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, MainActivity>(R.layout.fr
 
             // TODO : 권한 허용 수정 필요
             mBinding.llOpenGallery.id -> {
-                when (Build.VERSION.SDK_INT) {
-                    Build.VERSION_CODES.UPSIDE_DOWN_CAKE -> {
+                when {
+                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE -> {
                         handleClickOpenGallery(arrayOf(READ_MEDIA_IMAGES, READ_MEDIA_VISUAL_USER_SELECTED))
                     }
 
-                    Build.VERSION_CODES.TIRAMISU -> {
+                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU -> {
                         handleClickOpenGallery(arrayOf(READ_MEDIA_IMAGES))
                     }
 

@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface NetworkDatasource {
 
-    suspend fun getVersion() : Flow<Int?>
+//    suspend fun getVersion() : Flow<Int?>
 
     suspend fun getDermatologyList(
         query: String = "피부과",
